@@ -9,20 +9,23 @@
 
 <div class="w3-container w3-teal w3-center" style="width:50%">
     <h1>Registration page</h1>
-    <img data-testid="picture" src="cerebrum_hub_logo.png" width="178" height="166" alt="cerebrum_hub_logo">
+</div>
+<div class="w3-center" style="width:50%">  
+<p>This is <span>NEW</span> registration form created by Rimma</p>
+    <img data-testid="picture" src="cerebrum_hub_logo.png" width="107" height="90" alt="cerebrum_hub_logo">
 </div>
 
 <!--TODO simplify this form, should be all same stuff that mentioned previously and jquery-->
 <form class="w3-container w3-card-4 w3-light-grey" style="width:50%" name="myForm"
       ng-app="registration" ng-controller="validateCtrl" action="upload_file.html" novalidate>
-    <div class="w3-cell-row">
-        <div class="w3-container w3-cell">
+    <div class="w2-cell-row">
+        <div class="w2-cell">
             <div>
                 <label for="name">Name</label><br>
-                <input class="w3-border-0" id="name" name="name" placeholder="Type your name" required type="text"/>
+                <input class="w2-border-0" id="name" name="name" placeholder="Type your name" required type="text"/>
             </div>
             <label for="email">Email</label><br>
-            <input class="w3-border-0 email" name="email" ng-model="email" required type="email">
+            <input class="w2-border-0 email" name="email" ng-model="email" required type="email">
             <div id="emailAlert" role="alert">
                 <span ng-show="myForm.email.$dirty && myForm.email.$invalid" style="color:red"/>
                 <span ng-show="myForm.email.$error.required">Email is required.</span>
@@ -30,7 +33,7 @@
             </div>
             <div>
                 <label for="country">Country</label><br>
-                <select class="w3-border-0" id="country" ng-change="getSelectedCountry()"
+                <select class="w2-border-0" id="country" ng-change="getSelectedCountry()"
                         ng-model="countrySrc"
                         ng-options="country for (country, cities) in countries" required>
                     <option value=''></option>
@@ -38,7 +41,7 @@
             </div>
             <div>
                 <label for="city">City</label><br>
-                <select class="w3-border-0" id="city" ng-disabled="!countrySrc" ng-model="citySrc"
+                <select class="w2-border-0" id="city" ng-disabled="!countrySrc" ng-model="citySrc"
                         ng-options="city for city in countrySrc" required multiple>
                     <option value=''></option>
                 </select>
@@ -53,29 +56,25 @@
                 <input type="radio" name="freq" value="Monthly"/><label>Monthly</label><br>
                 <input type="radio" name="freq" value="Never"/><label>Never</label><br>
             </div>
-            <h2>Birthday</h2>
-            <p>Mandatory field that is set as required</p>
+
+        </div><label>Mandatory field that is set as required</label><br>
             <label for="birthday">Birthday:</label>
             <input type="date" id="birthday" name="birthday" required>
-            <div class="w3-container w3-teal w3-center" style="width:50%">
-                <h1>Upload a file</h1>
-            </div>
-            <div>
-                <input required type="checkbox" ng-model="checkbox">Accept our privacy policy</input>
-                <input required type="checkbox">
-                <button><a href="cookiePolicy.html">Accept our cookie policy</a></button>
-                <div id="checkboxAlert" role="alert">
-                    <span ng-show="myForm.checkbox.$dirty && myForm.checkbox.$invalid" style="color:red"/>
-                </div>
-            </div>
-            <div class="w3-cell-row">
+            <div class="w3-border-0" style="width:50%">
+                <label>Upload a file</label>
+           
+                <div class="w3-cell-row">
                 <div class="w3-container w3-cell">
                     <input type="file" id="myFile" name="filename">
                     <button type="submit">Submit file</button>
-                </div>
-            </div>
+            </div>  
         </div>
-    </div>
+            <div> <input required type="checkbox" ng-model="checkbox">Accept our privacy policy</input>
+            <div> <input required type="checkbox"> 
+                <button><a href="cookiePolicy.html">Accept our cookie policy</a></button>
+                <div id="checkboxAlert" role="alert">
+                <span ng-show="myForm.checkbox.$dirty && myForm.checkbox.$invalid" style="color:red"/>
+            </div>
     <p>
         <input ng-disabled="myForm.$invalid" type="submit" onclick="postYourAdd()">
         <span id="successFrame"/>
